@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Check In/Out</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .btn-center {
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        #messages-server, #messages-search {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="col-xs-8 col-xs-offset-2">
+            <input type="text" class="form-control" placeholder="Code" id="server" />
+            <button class="btn btn-primary btn-center" id="btn-server">Save</button>
+            <div id="messages-server"></div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+        <div class="col-xs-8 col-xs-offset-2">
+            <input type="text" class="form-control" placeholder="Code" id="code" />
+            <button class="btn btn-success btn-center" id="btn-search">Search</button>
+            <hr>
+            <div id="messages-search"></div>
+            <div class="user-data" id="data"></div>
+        </div>
+    </div>
+
+    <script src="axios.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
