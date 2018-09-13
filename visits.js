@@ -34,17 +34,16 @@ function getUserData() {
         axios.get(linkSearch)
             .then(result => result.data.data[0])
             .then(result => {
-                console.log(result);
                 userData.innerHTML = `
             <ul class="list-group">
-            <li class="list-group-item">Name : <strong>${response.name || ""}</strong></li>
-            <li class="list-group-item">Organization Name : <strong>${response.org_name || ""}</strong></li>
-            <li class="list-group-item">Number Of Visitors : <strong>${response.num_of_visitors || ""}</strong></li>
-            <li class="list-group-item">Email : <strong>${response.email || ""}</strong></li>
-            <li class="list-group-item">Phone : <strong>${response.phone || ""}</strong></li>
-            <li class="list-group-item">Code : <strong>${response.code || ""}</strong></li>
-            <li class="list-group-item">Status : <strong>${response.status || ""}</strong></li>
-            <li class="list-group-item">Visit Day : <strong>${response.visit_date || ""}</strong></li>
+            <li class="list-group-item">Name : <strong>${result.name || ""}</strong></li>
+            <li class="list-group-item">Organization Name : <strong>${result.org_name || ""}</strong></li>
+            <li class="list-group-item">Number Of Visitors : <strong>${result.num_of_visitors || ""}</strong></li>
+            <li class="list-group-item">Email : <strong>${result.email || ""}</strong></li>
+            <li class="list-group-item">Phone : <strong>${result.phone || ""}</strong></li>
+            <li class="list-group-item">Code : <strong>${result.code || ""}</strong></li>
+            <li class="list-group-item">Status : <strong>${result.status || ""}</strong></li>
+            <li class="list-group-item">Visit Day : <strong>${result.visit_date || ""}</strong></li>
           </ul>    
           <button class="btn btn-success" onclick="checkUser(${result.id})">Check</div>
             `;
