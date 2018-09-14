@@ -1,10 +1,8 @@
-var server = 'test.eed.eg';
+var server = 'localhost';
 
-let serverInput = document.getElementById('server');
 let codeInputVisitor = document.getElementById('code-visitor');
 let codeInputVisits = document.getElementById('code-visits');
 let codeInputVolunteer = document.getElementById('code-volunteer');
-let btnServer = document.getElementById('btn-server');
 let btnSearchVisitor = document.getElementById('btn-search-visitor');
 let btnSearchVisits = document.getElementById('btn-search-visits');
 let btnSearchVolunteer = document.getElementById('btn-search-volunteer');
@@ -15,19 +13,6 @@ let messagesServer = document.getElementById('messages-server');
 let userDataVisitor = document.getElementById('data-visitor');
 let userDataVisits = document.getElementById('data-visits');
 let userDataVolunteer = document.getElementById('data-volunteer');
-serverInput.value = server;
-
-
-
-btnServer.addEventListener('click', () => {
-    if (serverInput.value === '') {
-        messagesSearch.innerHTML = `<div class="alert alert-danger">Server can't be empty</div>`
-        return;
-    } else {
-        server = serverInput.value;
-        console.log(server);
-    }
-});
 
 btnSearchVisitor.addEventListener('click', getUserData)
 btnSearchVisits.addEventListener('click', getUserDataVisits)
@@ -213,7 +198,7 @@ function checkOutVolunteer(id, elm) {
 
 
 
-/** Slider Logic
+/** Navigation Logic
  * 
  * 
  * 
@@ -252,20 +237,3 @@ elNav.forEach(nav => {
 });
 
 send(0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -13,7 +13,14 @@
             align-items: center;
             justify-content: center;
             height: 50vh; */
-            margin-top: 20rem;
+            margin-top: 15rem;
+
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
         }
 
@@ -24,12 +31,31 @@
             text-align: center;
             /* margin-top: 10rem; */
         }
+
+        .row:nth-of-type(2) .well {
+            background-color: rgb(231, 70, 69);
+        }
+
+        .row:nth-of-type(3) .well {
+            background-color: rgb(52, 152, 210);
+
+        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="well well-lg">
+                    Total Count :
+                    <br />
+                    <span id="counter-total">
+                    </span>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12 col-md-8">
                 <div class="well well-lg">

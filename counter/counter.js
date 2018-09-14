@@ -1,6 +1,7 @@
-let server = 'test.eed.eg';
+let server = 'localhost';
 let counter = document.getElementById('counter');
 let counterVolunteer = document.getElementById('counter-volunteer');
+let totalCount = document.getElementById('counter-total');
 
 
 
@@ -13,6 +14,7 @@ function getVisitorsCount() {
         .then(result => {
             counter.innerHTML = `<strong>${result.visitors}</strong>`
             counterVolunteer.innerHTML = `<strong>${result.volunteers}</strong>`
+            totalCount.innerHTML = `<strong>${parseInt(result.visitors) + parseInt(result.volunteers)}</strong>`;
         })
 }
 
