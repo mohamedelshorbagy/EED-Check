@@ -1,11 +1,11 @@
-var server = 'localhost';
+var server = 'test.eed.eg';
 
 let codeInputVisitor = document.getElementById('code-visitor');
 let codeInputVisits = document.getElementById('code-visits');
 let codeInputVolunteer = document.getElementById('code-volunteer');
-let btnSearchVisitor = document.getElementById('btn-search-visitor');
-let btnSearchVisits = document.getElementById('btn-search-visits');
-let btnSearchVolunteer = document.getElementById('btn-search-volunteer');
+let formSearchVisitor = document.getElementById('form-search-visitor');
+let formSearchVisits = document.getElementById('form-search-visits');
+let formSearchVolunteer = document.getElementById('form-search-volunteer');
 let messagesSearchVisitor = document.getElementById('messages-search-visitor');
 let messagesSearchVisits = document.getElementById('messages-search-visits');
 let messagesSearchVolunteer = document.getElementById('messages-search-volunteer');
@@ -14,14 +14,15 @@ let userDataVisitor = document.getElementById('data-visitor');
 let userDataVisits = document.getElementById('data-visits');
 let userDataVolunteer = document.getElementById('data-volunteer');
 
-btnSearchVisitor.addEventListener('click', getUserData)
-btnSearchVisits.addEventListener('click', getUserDataVisits)
-btnSearchVolunteer.addEventListener('click', getUserDataVolunteer)
+formSearchVisitor.addEventListener('submit', getUserData)
+formSearchVisits.addEventListener('submit', getUserDataVisits)
+formSearchVolunteer.addEventListener('submit', getUserDataVolunteer)
 
 
 
 
-function getUserData() {
+function getUserData(event) {
+    event.preventDefault();
     messagesSearchVisitor.innerHTML = '';
     userDataVisitor.innerHTML = '';
     if (codeInputVisitor.value !== '') {
@@ -87,7 +88,8 @@ function checkOutUser(id, elm) {
 }
 
 
-function getUserDataVisits() {
+function getUserDataVisits(event) {
+    event.preventDefault();
     messagesSearchVisits.innerHTML = '';
     userDataVisits.innerHTML = '';
     if (codeInputVisits.value !== '') {
@@ -137,7 +139,8 @@ function checkUser(id, elm) {
  * 
  */
 
-function getUserDataVolunteer() {
+function getUserDataVolunteer(event) {
+    event.preventDefault();
     messagesSearchVolunteer.innerHTML = '';
     userDataVolunteer.innerHTML = '';
     if (codeInputVolunteer.value !== '') {
