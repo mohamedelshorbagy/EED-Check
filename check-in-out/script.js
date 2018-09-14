@@ -58,13 +58,15 @@ function getUserData() {
             if (result.checked === 0) {
                 // Check In
                 userDataVisitor.innerHTML += `
-                    <button class="btn btn-success" onclick="checkInUser(${result.id}, this)">Check In</div>
+                    <button class="btn btn-success" onclick="checkInUser(${result.id}, this)">Check In</button>
+                    <hr />
                 `
             } else {
                 // Check Out
                 userDataVisitor.innerHTML += `
-                    <button class="btn btn-danger" onclick="checkOutUser(${result.id}, this)">Check Out</div>
-                `
+                    <button class="btn btn-danger" onclick="checkOutUser(${result.id}, this)">Check Out</button>
+                    <hr />
+                    `
             }
 
         });
@@ -119,8 +121,9 @@ function getUserDataVisits() {
             <li class="list-group-item">Status : <strong>${result.status || ""}</strong></li>
             <li class="list-group-item">Visit Day : <strong>${result.visit_date || ""}</strong></li>
           </ul>    
-          <button class="btn btn-success" onclick="checkUser(${result.id}, this)">Check</div>
-            `;
+          <button class="btn btn-success" onclick="checkUser(${result.id}, this)">Check</button>
+          <hr />  
+          `;
 
             });
 
@@ -168,13 +171,14 @@ function getUserDataVolunteer() {
                 if (result.checked === 0) {
                     // Check In
                     userDataVolunteer.innerHTML += `
-                            <button class="btn btn-success" onclick="checkInVolunteer(${result.id}, this)">Check In</div>
-                        `
+                            <button class="btn btn-success" onclick="checkInVolunteer(${result.id}, this)">Check In</button>
+                            <hr />
+                                    `
                 } else {
                     // Check Out
                     userDataVolunteer.innerHTML += `
-                            <button class="btn btn-danger" onclick="checkOutVolunteer(${result.id}, this)">Check Out</div>
-                        `
+                            <button class="btn btn-danger" onclick="checkOutVolunteer(${result.id}, this)">Check Out</button>
+                            <hr />`
                 }
 
             });
