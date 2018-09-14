@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visitor Counter</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .row:nth-of-type(1) {
+            /* display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh; */
+            margin-top: 20rem;
+
+        }
+
+        .well {
+            background-color: rgb(42, 204, 113);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            /* margin-top: 10rem; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="well well-lg">
+                    Visitors Count :
+                    <br />
+                    <span id="counter">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="well well-lg">
+                    Volunteer Count :
+                    <br />
+                    <span id="counter-volunteer">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="axios.js"></script>
+    <script src="counter.js"></script>
+</body>
+
+</html>
