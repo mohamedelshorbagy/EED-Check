@@ -12,7 +12,9 @@
             margin-left: 50%;
             transform: translateX(-50%);
         }
-        #messages-server, #messages-search {
+
+        #messages-server,
+        #messages-search {
             margin-top: 15px;
             margin-bottom: 15px;
         }
@@ -20,29 +22,78 @@
         .form-control {
             margin: 15px 0;
         }
+
+        .container.main {
+            display: none;
+        }
+
+        .container.main[data-active] {
+            display: block;
+        }
+
+        .nav li {
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
-    <h3 class="text-center">Visitors</h3>
     <div class="container">
         <div class="col-xs-8 col-xs-offset-2">
-            <input type="text" class="form-control" placeholder="Code" id="server" />
+            <input type="text" class="form-control" placeholder="Server" id="server" />
             <button class="btn btn-primary btn-center" id="btn-server">Save</button>
             <div id="messages-server"></div>
         </div>
     </div>
-    <div class="container">
-        <hr>
-        <div class="col-xs-8 col-xs-offset-2">
-            <input type="text" class="form-control" placeholder="Code" id="code" />
-            <button class="btn btn-success btn-center" id="btn-search">Search</button>
-            <hr>
-            <div id="messages-search"></div>
-            <div class="user-data" id="data"></div>
+    <hr>
+    <div class="navs container">
+        <div class="col-xs-11 col-xs-offset-1">
+            <ul class="nav nav-pills">
+                <li data-key="0"><a>Visitor</a></li>
+                <li data-key="1"><a>Visits</a></li>
+                <li data-key="2"><a>Volunteers</a></li>
+            </ul>
         </div>
     </div>
+    <hr>
+    <div class="main-items" data-state="0">
 
+        <div class="container main visitors" data-key="0">
+            <h3 class="text-center">Visitors</h3>
+            <hr>
+            <div class="col-xs-8 col-xs-offset-2">
+                <input type="text" class="form-control" placeholder="Code" id="code-visitor" />
+                <button class="btn btn-success btn-center" id="btn-search-visitor">Search</button>
+                <hr>
+                <div id="messages-search-visitor"></div>
+                <div class="user-data-visitor" id="data-visitor"></div>
+            </div>
+        </div>
+
+        <div class="container main visits" data-key="1">
+            <h3 class="text-center">Visits</h3>
+            <hr>
+            <div class="col-xs-8 col-xs-offset-2">
+                <input type="text" class="form-control" placeholder="Code" id="code-visits" />
+                <button class="btn btn-success btn-center" id="btn-search-visits">Search</button>
+                <hr>
+                <div id="messages-search-visits"></div>
+                <div class="user-data-visits" id="data-visits"></div>
+            </div>
+        </div>
+        <div class="container main volunteers" data-key="2">
+            <h3 class="text-center">Volunteers</h3>
+            <hr>
+            <div class="col-xs-8 col-xs-offset-2">
+                <input type="text" class="form-control" placeholder="Code" id="code-volunteer" />
+                <button class="btn btn-success btn-center" id="btn-search-volunteer">Search</button>
+                <hr>
+                <div id="messages-search-volunteer"></div>
+                <div class="user-data-volunteer" id="data-volunteer"></div>
+            </div>
+        </div>
+
+    </div>
     <script src="axios.js"></script>
     <script src="script.js"></script>
 
