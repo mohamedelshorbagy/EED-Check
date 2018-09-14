@@ -58,12 +58,12 @@ function getUserData() {
             if (result.checked === 0) {
                 // Check In
                 userDataVisitor.innerHTML += `
-                    <button class="btn btn-success" onclick="checkInUser(${result.id})">Check In</div>
+                    <button class="btn btn-success" onclick="checkInUser(${result.id}, this)">Check In</div>
                 `
             } else {
                 // Check Out
                 userDataVisitor.innerHTML += `
-                    <button class="btn btn-danger" onclick="checkOutUser(${result.id})">Check Out</div>
+                    <button class="btn btn-danger" onclick="checkOutUser(${result.id}, this)">Check Out</div>
                 `
             }
 
@@ -75,21 +75,27 @@ function getUserData() {
 
 }
 
-function checkInUser(id) {
+function checkInUser(id, elm) {
+    elm.setAttribute('disabled', 'disabled');
     let body = { id };
     let link = `http://${server}/api/checkin`;
     axios.post(link, body).then(result => result.data.data.success).then(result => {
         messagesSearchVisitor.innerHTML = `<div class="alert alert-success">${result}</div>`
+        elm.removeAttribute('disabled');
+
     })
 }
 
 
 
-function checkOutUser(id) {
+function checkOutUser(id, elm) {
+    elm.setAttribute('disabled', 'disabled');
     let body = { id };
     let link = `http://${server}/api/checkout`;
     axios.post(link, body).then(result => result.data.data.success).then(result => {
         messagesSearchVisitor.innerHTML = `<div class="alert alert-success">${result}</div>`
+        elm.removeAttribute('disabled');
+
     })
 }
 
@@ -113,7 +119,7 @@ function getUserDataVisits() {
             <li class="list-group-item">Status : <strong>${result.status || ""}</strong></li>
             <li class="list-group-item">Visit Day : <strong>${result.visit_date || ""}</strong></li>
           </ul>    
-          <button class="btn btn-success" onclick="checkUser(${result.id})">Check</div>
+          <button class="btn btn-success" onclick="checkUser(${result.id}, this)">Check</div>
             `;
 
             });
@@ -124,11 +130,14 @@ function getUserDataVisits() {
 
 }
 
-function checkUser(id) {
+function checkUser(id, elm) {
+    elm.setAttribute('disabled', 'disabled');
+
     let body = { id };
     let link = `http://${server}/api/visit-check`;
     axios.post(link, body).then(result => result.data.data.success).then(result => {
         messagesSearchVisits.innerHTML = `<div class="alert alert-success">${result}</div>`
+        elm.removeAttribute('disabled');
     })
 }
 
@@ -151,26 +160,20 @@ function getUserDataVolunteer() {
                 console.log(result);
                 userDataVolunteer.innerHTML = `
                     <ul class="list-group">
-                        <li class="list-group-item">Arabic Name : <strong>${result.name_en || ""}</strong></li>
-                        <li class="list-group-item">English Name : <strong>${result.name_ar || ""}</strong></li>
-                        <li class="list-group-item">Gender : <strong>${result.gender || ""}</strong></li>
-                        <li class="list-group-item">Email : <strong>${result.email || ""}</strong></li>
+                        <li class="list-group-item">Name : <strong>${result.name || ""}</strong></li>
                         <li class="list-group-item">Phone : <strong>${result.phone || ""}</strong></li>
-                        <li class="list-group-item">Code : <strong>${result.code || ""}</strong></li>
-                        <li class="list-group-item">Education : <strong>${result.education || ""}</strong></li>
-                        <li class="list-group-item">Status : <strong>${result.status || ""}</strong></li>
                   </ul>    
                     `;
 
                 if (result.checked === 0) {
                     // Check In
                     userDataVolunteer.innerHTML += `
-                            <button class="btn btn-success" onclick="checkInVolunteer(${result.id})">Check In</div>
+                            <button class="btn btn-success" onclick="checkInVolunteer(${result.id}, this)">Check In</div>
                         `
                 } else {
                     // Check Out
                     userDataVolunteer.innerHTML += `
-                            <button class="btn btn-danger" onclick="checkOutVolunteer(${result.id})">Check Out</div>
+                            <button class="btn btn-danger" onclick="checkOutVolunteer(${result.id}, this)">Check Out</div>
                         `
                 }
 
@@ -182,21 +185,25 @@ function getUserDataVolunteer() {
 
 }
 
-function checkInVolunteer(id) {
+function checkInVolunteer(id, elm) {
+    elm.setAttribute('disabled', 'disabled');
     let body = { id };
     let link = `http://${server}/api/volunteer-checkin`;
     axios.post(link, body).then(result => result.data.data.success).then(result => {
         messagesSearch.innerHTML = `<div class="alert alert-success">${result}</div>`
+        elm.removeAttribute('disabled');
     })
 }
 
 
 
-function checkOutVolunteer(id) {
+function checkOutVolunteer(id, elm) {
+    elm.setAttribute('disabled', 'disabled');
     let body = { id };
     let link = `http://${server}/api/volunteer-checkout`;
     axios.post(link, body).then(result => result.data.data.success).then(result => {
         messagesSearch.innerHTML = `<div class="alert alert-success">${result}</div>`
+        elm.removeAttribute('disabled');
     })
 }
 
